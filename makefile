@@ -1,36 +1,48 @@
 
 export FGLIMAGEPATH=../pics:$(FGLDIR)/lib/image2font.txt
+export FGLPROFILE=../etc/profile.ur
 export FGLRESOURCEPATH=../etc
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export LD_LIBRARY_PATH=$(JAVA_HOME)/jre/lib/amd64/server
 
-VER=310
+GBC=gbc-simple
+VER=$(GENVER)
 APP=simpleWCGBCdemo
-GAR=distbin/$(APP).gar
+GAR=distbin$(VER)/$(APP).gar
 
 SRSC=$(shell ls src/*.4gl src/*.per java/*.java xcf/*.xcf etc/*)
 
-all: bin $(GAR)
+all: bin$(VER) bin$(VER)/gbc bin$(VER)/webcomponents bin$(VER)/gbc $(GAR)
 
-bin:
-	mkdir bin
+bin$(VER):
+	mkdir bin$(VER)
 
-bin/webcomponents: bin
-	cd bin && rm -f webcomponents && ln -s ../webcomponents
+# Make the link for webcomponents
+bin$(VER)/webcomponents:
+	cd bin$(VER) && rm -f webcomponents && ln -s ../webcomponents
 
-bin/simple.class: java/simple.java
-	javac -d bin $^
+gbc/gbc-current/dist/customization/$(GBC):
+	cd gbc && make
 
-bin/simpleDemo.42r: bin/simple.class bin/webcomponents $(SRSC)
-	gsmake simpleWCGBCdemo.4pw
+# Make the link for the custom GBC
+bin$(VER)/gbc: bin$(VER) gbc/gbc-current/dist/customization/$(GBC)
+	cd bin$(VER) && rm -f gbc && ln -s ../gbc/gbc-current/dist/customization/$(GBC) gbc
 
-$(GAR): bin/simpleDemo.42r
+# Build the Java
+bin$(VER)/simple.class: java/simple.java
+	javac -d bin$(VER) $^
 
-run: bin/simpleDemo.42r
-	cd bin && fglrun simpleDemo.42r
+# Build the Genero application
+bin$(VER)/simpleDemo.42r: bin$(VER)/simple.class $(SRSC)
+	gsmake $(APP)$(VER).4pw
+
+$(GAR): bin$(VER)/simpleDemo.42r
+
+run: all
+	cd bin$(VER) && fglrun simpleDemo.42r
 
 clean:
-	rm -rf bin distbin
+	rm -rf bin$(VER) distbin$(VER)
 
 undeploy: 
 	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --disable-archive $(APP)

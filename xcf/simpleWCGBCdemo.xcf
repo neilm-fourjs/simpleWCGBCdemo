@@ -5,6 +5,7 @@
 	<RESOURCE Id="res.path.mydemo" Source="INTERNAL">$(res.deployment.path)</RESOURCE>
 	<EXECUTION>
 		<ENVIRONMENT_VARIABLE Id="FGLRESOURCEPATH">$(res.path.mydemo)/etc</ENVIRONMENT_VARIABLE>
+		<ENVIRONMENT_VARIABLE Id="FGLPROFILE">$(res.path.mydemo)/etc/profile.ur</ENVIRONMENT_VARIABLE>
 		<ENVIRONMENT_VARIABLE Id="FGLIMAGEPATH">$(res.path.mydemo)/pics:$(res.fgldir)/image2font.txt</ENVIRONMENT_VARIABLE>
 		<PATH>$(res.path.mydemo)/bin</PATH>
 		<MODULE>simpleDemo.42r</MODULE>
