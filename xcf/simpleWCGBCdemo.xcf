@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<APPLICATION Parent="defaultgdc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.4js.com/ns/gas/3.10/cfextwa.xsd">
+	<RESOURCE Id="res.path.mydemo" Source="INTERNAL">$(res.deployment.path)</RESOURCE>
+	<EXECUTION>
+		<ENVIRONMENT_VARIABLE Id="FGLRESOURCEPATH">$(res.path.mydemo)/etc</ENVIRONMENT_VARIABLE>
+		<ENVIRONMENT_VARIABLE Id="FGLIMAGEPATH">$(res.path.mydemo)/pics:$(res.fgldir)/image2font.txt</ENVIRONMENT_VARIABLE>
+		<PATH>$(res.path.mydemo)/bin</PATH>
+		<MODULE>simpleDemo.42r</MODULE>
+		<WEB_COMPONENT_DIRECTORY>$(res.path.mydemo)/webcomponents</WEB_COMPONENT_DIRECTORY>
+	</EXECUTION>
+	<!--UA_OUTPUT>
+		<PROXY>$(res.uaproxy.cmd)</PROXY>
+		<PUBLIC_IMAGEPATH>$(res.public.resources)</PUBLIC_IMAGEPATH>
+		<GBC>gbc-simple</GBC>
+	</UA_OUTPUT-->
+</APPLICATION>
