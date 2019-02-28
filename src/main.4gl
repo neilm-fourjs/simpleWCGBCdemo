@@ -16,6 +16,7 @@ MAIN
 	INPUT BY NAME l_wc ATTRIBUTES(WITHOUT DEFAULTS, UNBUFFERED, ACCEPT=FALSE, CANCEL=FALSE)
 		ON ACTION test1 LET l_wc = "Another test"
 		ON ACTION javaver LET l_wc = SFMT("Java Version is %1", l_simple.getJavaVersion() )
+		ON ACTION generover LET l_wc = SFMT("Genero Version is %1", fgl_getVersion() )
 		ON ACTION close EXIT INPUT
 		ON ACTION quit EXIT INPUT
 	END INPUT

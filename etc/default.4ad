@@ -44,5 +44,6 @@ Property of Four Js*
   <ActionDefault name="quit" validate="no" text="Quit" image="fa-power-off" acceleratorName="Escape" defaultView="yes" contextMenu="no"/>
   <ActionDefault name="test1" text="Test #1" image="fa-hand-pointer-o" acceleratorName="f1" defaultView="yes" contextMenu="no"/>
   <ActionDefault name="javaver" text="Java Ver" image="fa-certificate" acceleratorName="f2" defaultView="yes" contextMenu="no"/>
+  <ActionDefault name="generover" text="Genero Ver" image="fa-certificate" acceleratorName="f3" defaultView="yes" contextMenu="no"/>
 
 </ActionDefaultList>

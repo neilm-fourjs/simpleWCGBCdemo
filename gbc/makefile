@@ -1,5 +1,6 @@
 
 PWD=$(shell pwd)
+VER=$(GENVER)
 CUSTGBC=gbc-simple
 VERDIR=gbc-current
 DIR=$(VERDIR)/customization/$(CUSTGBC)
@@ -20,7 +21,7 @@ $(VERDIR)/dist/customization/$(CUSTGBC)/VERSION: $(DIR) $(GBCFILES)
 	cd gbc-current && grunt --customization=customization/$(CUSTGBC) --compile-mode=prod --create-zip
 
 deploy: $(CUSTGBC).zip
-	gasadmin gbc -f $(FGLASDIR)/etc/new_as310.xcf --deploy $^
+	gasadmin gbc -f $(FGLASDIR)/etc/new_as$(VER).xcf --deploy $^
 
 undeploy: 
-	gasadmin gbc -f $(FGLASDIR)/etc/new_as310.xcf --undeploy $(CUSTGBC)
+	gasadmin gbc -f $(FGLASDIR)/etc/new_as$(VER).xcf --undeploy $(CUSTGBC)
