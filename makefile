@@ -52,3 +52,4 @@ deploy: $(GAR)
 	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --deploy-archive $^
 	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --enable-archive $(APP)
 	
+redeploy: undeploy deploy

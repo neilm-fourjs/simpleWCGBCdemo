@@ -25,3 +25,5 @@ deploy: $(CUSTGBC).zip
 
 undeploy: 
 	gasadmin gbc -f $(FGLASDIR)/etc/new_as$(VER).xcf --undeploy $(CUSTGBC)
+
+redeploy: undeploy deploy
