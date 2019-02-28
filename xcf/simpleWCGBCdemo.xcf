@@ -10,9 +10,9 @@
 		<MODULE>simpleDemo.42r</MODULE>
 		<WEB_COMPONENT_DIRECTORY>$(res.path.mydemo)/webcomponents</WEB_COMPONENT_DIRECTORY>
 	</EXECUTION>
-	<!--UA_OUTPUT>
+	<UA_OUTPUT>
 		<PROXY>$(res.uaproxy.cmd)</PROXY>
 		<PUBLIC_IMAGEPATH>$(res.public.resources)</PUBLIC_IMAGEPATH>
 		<GBC>gbc-simple</GBC>
-	</UA_OUTPUT-->
+	</UA_OUTPUT>
 </APPLICATION>

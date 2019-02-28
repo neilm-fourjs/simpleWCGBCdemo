@@ -18,3 +18,9 @@ $(CUSTGBC).zip: $(VERDIR)/dist/customization/$(CUSTGBC)/VERSION
 
 $(VERDIR)/dist/customization/$(CUSTGBC)/VERSION: $(DIR) $(GBCFILES)
 	cd gbc-current && grunt --customization=customization/$(CUSTGBC) --compile-mode=prod --create-zip
+
+deploy: $(CUSTGBC).zip
+	gasadmin gbc -f $(FGLASDIR)/etc/new_as310.xcf --deploy $^
+
+undeploy: 
+	gasadmin gbc -f $(FGLASDIR)/etc/new_as310.xcf --undeploy $(CUSTGBC)
