@@ -1,10 +1,12 @@
-
-BODY {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 14px;
+BODY { font-family: 'Source Sans Pro', sans-serif; font-size: 14px;
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	margin: 0px 0px 0px 0px;
+	background: linear-gradient($theme-primary-faded-background-color, $theme-primary-emphasis-background-color);
+}
+
+.gbc_WindowWidget {
+	background: linear-gradient($theme-primary-faded-background-color, $theme-primary-emphasis-background-color);
 }
 
 // get rid of ugly empty folder nav butons
