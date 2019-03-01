@@ -31,7 +31,7 @@ bin$(VER)/simple.class: java/simple.java
 	javac -d bin$(VER) $^
 
 # Build the Genero application
-bin$(VER)/simpleDemo.42r: bin$(VER)/simple.class $(SRSC)
+bin$(VER)/simpleDemo.42r: bin$(VER) bin$(VER)/simple.class $(SRSC)
 	gsmake $(APP)$(VER).4pw
 
 $(GAR): bin$(VER)/webcomponents bin$(VER)/simpleDemo.42r
