@@ -19,12 +19,13 @@ if [ $? -ne 0 ]; then
 	echo "ERROR: Genero Application Server not found!"
 fi
 
+export GASCFG="-f $FGLASDIR/etc/as.xcf"
 # Looking for a custom GAS cfg file
-if [ -e $FGLASDIR/etc/new_as$(GENVER).xcf ]; then
-	export GASCFG=-f $FGLASDIR/etc/new_as$(GENVER).xcf
+if [ -e $FGLASDIR/etc/new_as$GENVER.xcf ]; then
+	export GASCFG="-f $FGLASDIR/etc/new_as$GENVER.xcf"
 fi
-if [ -e $FGLASDIR/etc/isv_as$(GENVER).xcf ]; then
-	export GASCFG=-f $FGLASDIR/etc/isv_as$(GENVER).xcf
+if [ -e $FGLASDIR/etc/isv_as$GENVER.xcf ]; then
+	export GASCFG="-f $FGLASDIR/etc/isv_as$GENVER.xcf"
 fi
 
 JAVAVER=$(javac -version 2> /dev/null 2>&1)
@@ -65,6 +66,6 @@ if [ ! -d gbc/gbc-current ]; then
 	fi	
 fi
 
-echo Genero FGL: $GVER  GAS: $GASVER GBC: $(cat gbc/gbc-current/VERSION)
+echo Genero FGL: $GVER  GBC: $(cat gbc/gbc-current/VERSION) GAS: $GASVER GASCFG: $GASCFG
 echo Java: $JAVAVER JVM: $JVM
 echo NODEJS: $NODEJS + NPM: $NPM + $GRUNT

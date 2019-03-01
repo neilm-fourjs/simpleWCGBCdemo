@@ -43,12 +43,12 @@ clean:
 	rm -rf bin$(VER) distbin$(VER)
 
 undeploy: 
-	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --disable-archive $(APP)
-	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --undeploy-archive $(APP)
+	gasadmin gar $(GASCFG) --disable-archive $(APP)
+	gasadmin gar $(GASCFG) --undeploy-archive $(APP)
 
 deploy: $(GAR)
-	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --deploy-archive $^
-	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --enable-archive $(APP)
+	gasadmin gar $(GASCFG) --deploy-archive $^
+	gasadmin gar $(GASCFG) --enable-archive $(APP)
 	
 redeploy: undeploy deploy
 

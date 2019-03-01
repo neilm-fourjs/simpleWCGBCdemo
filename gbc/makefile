@@ -4,7 +4,6 @@ VER=$(GENVER)
 CUSTGBC=gbc-simple
 VERDIR=gbc-current
 DIR=$(VERDIR)/customization/$(CUSTGBC)
-GASCFG=-f $(FGLASDIR)/etc/new_as$(GENVER).xcf
 GBCFILES=\
 	$(DIR)/theme.scss.json\
 	$(DIR)/sass/customization.scss\
