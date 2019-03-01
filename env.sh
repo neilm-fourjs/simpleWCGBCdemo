@@ -14,6 +14,19 @@ esac
 
 export GENVER
 
+GASVER=$(gasadmin -V 2> /dev/null | head -1 | cut -d' ' -f2 | cut -d'.' -f1-2)
+if [ $? -ne 0 ]; then
+	echo "ERROR: Genero Application Server not found!"
+fi
+
+# Looking for a custom GAS cfg file
+if [ -e $FGLASDIR/etc/new_as$(GENVER).xcf ]; then
+	export GASCFG=-f $FGLASDIR/etc/new_as$(GENVER).xcf
+fi
+if [ -e $FGLASDIR/etc/isv_as$(GENVER).xcf ]; then
+	export GASCFG=-f $FGLASDIR/etc/isv_as$(GENVER).xcf
+fi
+
 JAVAVER=$(javac -version 2> /dev/null 2>&1)
 if [ $? -ne 0 ]; then
 	echo "ERROR: Java compiler not found!"
@@ -22,6 +35,11 @@ fi
 NODEJS=$(nodejs -v 2> /dev/null)
 if [ $? -ne 0 ]; then
 	echo "ERROR: NODEJS not found!"
+fi
+
+NPM=$(npm -v 2> /dev/null)
+if [ $? -ne 0 ]; then
+	echo "ERROR: NPM not found!"
 fi
 
 GRUNT=$(grunt -V 2> /dev/null)
@@ -47,7 +65,6 @@ if [ ! -d gbc/gbc-current ]; then
 	fi	
 fi
 
-echo Genero is $GVER
-echo Java $JAVAVER JVM is $JVM
-echo GBC $(cat gbc/gbc-current/VERSION)
-echo NODEJS $NODEJS + $GRUNT
+echo Genero FGL: $GVER  GAS: $GASVER GBC: $(cat gbc/gbc-current/VERSION)
+echo Java: $JAVAVER JVM: $JVM
+echo NODEJS: $NODEJS + NPM: $NPM + $GRUNT
