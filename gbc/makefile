@@ -11,8 +11,8 @@ GBCFILES=\
 
 all: $(CUSTGBC).zip
 
-$(DIR): $(VERDIR)
-	ln -s $(PWD)/$(CUSTGBC) $(DIR)
+$(DIR):
+	ln -s $(PWD)/$(CUSTGBC) $(DIR)/
 
 $(CUSTGBC).zip: $(VERDIR)/dist/customization/$(CUSTGBC)/VERSION
 	rm -f $(CUSTGBC).zip && ln -s $(shell ls -1rt $(VERDIR)/archive/*.zip | tail -1) $@;

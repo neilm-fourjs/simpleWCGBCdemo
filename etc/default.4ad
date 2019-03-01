@@ -41,6 +41,9 @@ Property of Four Js*
   <ActionDefault name="prevtab" text="Previous Folder Tab" acceleratorName="Control-Shift-Tab" contextMenu="no"/>
   <ActionDefault name="dialogtouched" validate="no" defaultView="no"  contextMenu="no"/>
 
+  <ActionDefault name="do_wc" validate="no" text="Do WC" image="fa-chrome" acceleratorName="w" defaultView="yes" contextMenu="no"/>
+
+  <ActionDefault name="back" validate="no" text="Back" image="fa-arrow-circle-left" acceleratorName="Escape" defaultView="yes" contextMenu="no"/>
   <ActionDefault name="quit" validate="no" text="Quit" image="fa-power-off" acceleratorName="Escape" defaultView="yes" contextMenu="no"/>
   <ActionDefault name="test1" text="Test #1" image="fa-hand-pointer-o" acceleratorName="f1" defaultView="yes" contextMenu="no"/>
   <ActionDefault name="javaver" text="Java Ver" image="fa-certificate" acceleratorName="f2" defaultView="yes" contextMenu="no"/>
