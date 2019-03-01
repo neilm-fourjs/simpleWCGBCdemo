@@ -71,10 +71,11 @@
     </Language>
   </LanguageList>
   <PlatformList version="1.0"/>
-  <Group environment="value:FGLRESOURCEPATH=$(ProjectDir)/etc,value:FGLIMAGEPATH=$(ProjectDir)/pics:$(FGLDIR)/lib/image2font.txt" label="Group" language="Genero" targetDirectory="$(ProjectDir)/bin310">
+  <Group environment="value:MYPICS=$(ProjectDir)/pics,value:MYIMG2FONT=$(FGLDIR)/lib/image2font.txt,value:MYWCPATH=$(ProjectDir):$(ProjectDir)/webcomponents,value:FGLRESOURCEPATH=$(ProjectDir)/etc,value:FGLIMAGEPATH=$(MYWCPATH);:$(MYPICS):$(MYIMG2FONT)" label="Group" language="Genero" targetDirectory="$(ProjectDir)/bin310">
     <Library binaryName="etc" id="-1234406158" label="etc">
       <File filePath="etc/default.4ad"/>
       <File filePath="etc/default.4st"/>
+      <File filePath="etc/simpleDemo.xcf"/>
     </Library>
     <Library binaryName="java" id="1354634647" label="java" language="Java" srcDirectory="$(ProjectDir)/java">
       <File filePath="java/simple.java"/>
