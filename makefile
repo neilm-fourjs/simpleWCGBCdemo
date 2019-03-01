@@ -2,8 +2,6 @@
 export FGLIMAGEPATH=../pics:$(FGLDIR)/lib/image2font.txt
 export FGLPROFILE=../etc/profile.ur
 export FGLRESOURCEPATH=../etc
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export LD_LIBRARY_PATH=$(JAVA_HOME)/jre/lib/amd64/server
 
 GBC=gbc-simple
 VER=$(GENVER)
