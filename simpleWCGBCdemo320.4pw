@@ -72,12 +72,13 @@
     </Language>
   </LanguageList>
   <PlatformList version="1.0"/>
-  <Group environment="dir:FGLGBCDIR=$(ProjectDir)/gbc/gbc-current/dist/customization/gbc-simple,value:FGLPROFILE=$(ProjectDir)/etc/profile.ur,value:FGLRESOURCEPATH=$(ProjectDir)/etc,value:FGLIMAGEPATH=$(ProjectDir)/pics:$(FGLDIR)/lib/image2font.txt" id="-210430862" label="Group" language="Genero" targetDirectory="$(ProjectDir)/bin320">
+  <Group environment="dir:FGLGBCDIR=$(ProjectDir)/gbc/gbc-current/dist/customization/gbc-simple,value:FGLPROFILE=$(ProjectDir)/etc/profile.ur,value:FGLRESOURCEPATH=$(ProjectDir)/etc,value:MYWCPATH=$(ProjectDir)/webcomponents,value:MYIMG2FONT=$(FGLDIR)/lib/image2font.txt,value:MYPICS=$(ProjectDir)/pics,value:FGLIMAGEPATH=$(MYWCPATH);:$(MYPICS):$(MYIMG2FONT)" id="-210430862" label="Group" language="Genero" targetDirectory="$(ProjectDir)/bin320">
     <Library binaryName="etc" id="-1234406158" label="etc">
       <File filePath="etc/default.4ad"/>
       <File filePath="etc/default.4st"/>
       <File filePath="etc/profile.nat"/>
       <File filePath="etc/profile.ur"/>
+      <File filePath="etc/simpleDemo.xcf"/>
     </Library>
     <Library binaryName="java" id="1354634647" label="java" language="Java" srcDirectory="$(ProjectDir)/java">
       <File filePath="java/simple.java"/>
@@ -86,7 +87,7 @@
       <File filePath="src/form.per"/>
       <File filePath="src/main.4gl"/>
     </Application>
-    <Library binaryName="simpleWC" dependencies="1986" id="14000" label="simpleWC">
+    <Library binaryName="simpleWC" dependencies="1986" id="14000" label="simpleWC" language="Genero">
       <File filePath="webcomponents/simpleWC/simpleWC.html"/>
       <File filePath="webcomponents/simpleWC/simpleWC.js"/>
     </Library>
