@@ -41,7 +41,7 @@ if [ ! -d gbc/gbc-current ]; then
 	echo "Enter full path to current gbc project extract folder ?"
 	read GBCDIR
 	if [ ! -d $GBCDIR ] || [ ! -e $GBCDIR/VERSION ]; then
-		echo "ERROR: GBC Project folder not found!"
+		echo "ERROR: GBC Project folder not found or invalid!"
 	else
 		ln -s $GBCDIR gbc/gbc-current
 	fi	
