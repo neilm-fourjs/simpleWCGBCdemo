@@ -1,4 +1,6 @@
-# A simple demo that uses a WebComponent and a custom GBC and a Java source file
+# A simple demo 
+
+*That uses a WebComponent and a custom GBC and a Java source file*
 
 Goal is to be able to build and run using:
 * Linux command line with a makefile
@@ -6,7 +8,7 @@ Goal is to be able to build and run using:
 
 Also to be able to build and deploy as a GAR file and the custom GBC zip.
 
-# prerequisites
+# Prerequisites
 * Genero 3.10 or greater
 * Java SDK 1.8 or greater
 * NodeJS 8 or greater
@@ -15,7 +17,7 @@ Also to be able to build and deploy as a GAR file and the custom GBC zip.
 
 NOTE: The env.sh script checks the environment and reports the versions found and warns for any missing prerequisites.
 
-Instructions:
+# Instructions
 * download or clone the repo
 * set your Genero environment
 * cd simpleWCGBCdemo
