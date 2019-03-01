@@ -14,9 +14,12 @@ Instructions:
 * cd simpleWCGBCdemo
 * . env.sh
 * make run
+
 or
+
 * make deploy
 * make deploygbc
+
 then run via the GAS.
 
 eg:
