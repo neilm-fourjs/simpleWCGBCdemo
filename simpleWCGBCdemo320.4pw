@@ -94,9 +94,9 @@
       <DynamicProperty name="packageId" value="simpleWCGBCdemo"/>
       <DynamicProperty name="packageLabel" value="simpleWCGBCdemo"/>
       <Directory destinationDirectory="$(RootDir)/bin" label="bin" recursive="false" sourceDirectory="$(ProjectDir)/bin320"/>
-      <Directory destinationDirectory="$(RootDir)/etc" label="etc" recursive="false" sourceDirectory="$(ProjectDir)/etc"/>
-      <Directory destinationDirectory="$(RootDir)/pics" label="pics" recursive="false" sourceDirectory="$(ProjectDir)/pics"/>
-      <Directory destinationDirectory="$(RootDir)/webcomponents" label="wc" sourceDirectory="$(ProjectDir)/webcomponents"/>
+      <Directory destinationDirectory="$(RootDir)/bin" label="etc" recursive="false" sourceDirectory="$(ProjectDir)/etc"/>
+      <Directory destinationDirectory="$(RootDir)/bin" label="pics" recursive="false" sourceDirectory="$(ProjectDir)/pics"/>
+      <Directory destinationDirectory="$(RootDir)/bin/webcomponents" label="wc" sourceDirectory="$(ProjectDir)/webcomponents"/>
       <Directory label="xcf" recursive="false" sourceDirectory="$(ProjectDir)/xcf"/>
     </Package>
     <Library binaryName="xcf" id="-571056560" label="xcf">
