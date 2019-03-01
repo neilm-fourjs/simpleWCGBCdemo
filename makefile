@@ -51,3 +51,13 @@ deploy: $(GAR)
 	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --enable-archive $(APP)
 	
 redeploy: undeploy deploy
+
+deploygbc:
+	cd gbc && make deploy
+
+undeploygbc:
+	cd gbc && make undeploy
+
+redeploygbc:
+	cd gbc && make redeploy
+

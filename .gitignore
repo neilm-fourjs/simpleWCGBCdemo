@@ -40,9 +40,8 @@
 
 # Other
 .directory
-bin
 bin310
 bin320
-distbin
-build
-*.build
+
+# GBC Link
+gbc/gbc-current
