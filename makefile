@@ -1,12 +1,13 @@
 
-export FGLIMAGEPATH=../pics:$(FGLDIR)/lib/image2font.txt
-export FGLPROFILE=../etc/profile.ur
-export FGLRESOURCEPATH=../etc
-
 GBC=gbc-simple
 VER=$(GENVER)
 APP=simpleWCGBCdemo
 GAR=distbin$(VER)/$(APP).gar
+
+export FGLGBCDIR=../gbc/gbc-current/dist/customization/$(GBC)
+export FGLIMAGEPATH=../pics:$(FGLDIR)/lib/image2font.txt
+export FGLPROFILE=../etc/profile.ur
+export FGLRESOURCEPATH=../etc
 
 SRSC=$(shell ls src/*.4gl src/*.per java/*.java xcf/*.xcf etc/*)
 
@@ -22,10 +23,6 @@ bin$(VER)/webcomponents: bin$(VER)
 gbc/gbc-current/dist/customization/$(GBC):
 	cd gbc && make
 
-# Make the link for the custom GBC
-bin$(VER)/gbc: bin$(VER) gbc/gbc-current/dist/customization/$(GBC)
-	cd bin$(VER) && rm -f gbc && ln -s ../gbc/gbc-current/dist/customization/$(GBC) gbc
-
 # Build the Java
 bin$(VER)/simple.class: java/simple.java
 	javac -d bin$(VER) $^
@@ -36,7 +33,7 @@ bin$(VER)/simpleDemo.42r: bin$(VER) bin$(VER)/simple.class $(SRSC)
 
 $(GAR): bin$(VER)/webcomponents bin$(VER)/simpleDemo.42r
 
-run: bin$(VER)/simpleDemo.42r bin$(VER)/webcomponents bin$(VER)/gbc
+run: bin$(VER)/simpleDemo.42r bin$(VER)/webcomponents 
 	cd bin$(VER) && fglrun simpleDemo.42r
 
 clean:

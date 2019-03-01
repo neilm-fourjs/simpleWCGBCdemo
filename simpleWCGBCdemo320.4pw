@@ -72,7 +72,7 @@
     </Language>
   </LanguageList>
   <PlatformList version="1.0"/>
-  <Group environment="value:FGLPROFILE=$(ProjectDir)/etc/profile.ur,value:FGLRESOURCEPATH=$(ProjectDir)/etc,value:FGLIMAGEPATH=$(ProjectDir)/pics:$(FGLDIR)/lib/image2font.txt" id="-210430862" label="Group" language="Genero" targetDirectory="$(ProjectDir)/bin320">
+  <Group environment="dir:FGLGBCDIR=$(ProjectDir)/gbc/gbc-current/dist/customization/gbc-simple,value:FGLPROFILE=$(ProjectDir)/etc/profile.ur,value:FGLRESOURCEPATH=$(ProjectDir)/etc,value:FGLIMAGEPATH=$(ProjectDir)/pics:$(FGLDIR)/lib/image2font.txt" id="-210430862" label="Group" language="Genero" targetDirectory="$(ProjectDir)/bin320">
     <Library binaryName="etc" id="-1234406158" label="etc">
       <File filePath="etc/default.4ad"/>
       <File filePath="etc/default.4st"/>
