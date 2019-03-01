@@ -24,8 +24,6 @@ eg:
 $ . env.sh 
 Enter full path to current gbc project extract folder ?
 /opt/fourjs/gbc-1.00.51-project
-[1]+  Done                    gdc -a -D -M --port $GDCPORT 2> gdc.err > gdc.log  (wd: /opt/fourjs/gst-3.20.02/gdc/logs)
-(wd now: /tmp/t/simpleWCGBCdemo)
 Genero is 3.20
 Java javac 1.8.0_191 JVM is /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
 GBC 1.00.51
