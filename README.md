@@ -6,6 +6,13 @@ Goal is to be able to build and run using:
 
 Also to be able to build and deploy as a GAR file and the custom GBC zip.
 
+# prerequisites
+* Genero 3.10 or greater
+* Java SDK 1.8 or greater
+* NodeJS 8 or greater
+* npm 6 or greater
+* grunt-cli 1.2 or greater
+
 NOTE: The env.sh script checks the environment and reports the versions found and warns for any missing prerequisites.
 
 Instructions:
@@ -30,7 +37,7 @@ Enter full path to current gbc project extract folder ?
 Genero is 3.20
 Java javac 1.8.0_191 JVM is /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so
 GBC 1.00.51
-NODEJS v8.15.0 + grunt-cli v1.2.0
+NODEJS v8.15.0 + NPM 6.8.0 + grunt-cli v1.2.0
 ```
 
 Build and dpeloy the GAR to the local GAS
