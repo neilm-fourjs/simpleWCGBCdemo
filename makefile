@@ -10,13 +10,13 @@ GAR=distbin$(VER)/$(APP).gar
 
 SRSC=$(shell ls src/*.4gl src/*.per java/*.java xcf/*.xcf etc/*)
 
-all: bin$(VER) bin$(VER)/gbc bin$(VER)/webcomponents bin$(VER)/gbc $(GAR)
+all: bin$(VER) bin$(VER)/webcomponents $(GAR)
 
 bin$(VER):
 	mkdir bin$(VER)
 
 # Make the link for webcomponents
-bin$(VER)/webcomponents:
+bin$(VER)/webcomponents: bin$(VER)
 	cd bin$(VER) && rm -f webcomponents && ln -s ../webcomponents
 
 gbc/gbc-current/dist/customization/$(GBC):
@@ -34,9 +34,9 @@ bin$(VER)/simple.class: java/simple.java
 bin$(VER)/simpleDemo.42r: bin$(VER)/simple.class $(SRSC)
 	gsmake $(APP)$(VER).4pw
 
-$(GAR): bin$(VER)/simpleDemo.42r
+$(GAR): bin$(VER)/webcomponents bin$(VER)/simpleDemo.42r
 
-run: all
+run: bin$(VER)/simpleDemo.42r bin$(VER)/webcomponents bin$(VER)/gbc
 	cd bin$(VER) && fglrun simpleDemo.42r
 
 clean:
@@ -51,3 +51,13 @@ deploy: $(GAR)
 	gasadmin gar -f $(FGLASDIR)/etc/new_as$(VER).xcf --enable-archive $(APP)
 	
 redeploy: undeploy deploy
+
+deploygbc: gbc/gbc-current/dist/customization/$(GBC)
+	cd gbc && make deploy
+
+undeploygbc:
+	cd gbc && make undeploy
+
+redeploygbc:
+	cd gbc && make redeploy
+

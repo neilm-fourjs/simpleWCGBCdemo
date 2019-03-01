@@ -4,6 +4,7 @@ VER=$(GENVER)
 CUSTGBC=gbc-simple
 VERDIR=gbc-current
 DIR=$(VERDIR)/customization/$(CUSTGBC)
+GASCFG=-f $(FGLASDIR)/etc/new_as$(GENVER).xcf
 GBCFILES=\
 	$(DIR)/theme.scss.json\
 	$(DIR)/sass/customization.scss\
@@ -21,9 +22,9 @@ $(VERDIR)/dist/customization/$(CUSTGBC)/VERSION: $(DIR) $(GBCFILES)
 	cd gbc-current && grunt --customization=customization/$(CUSTGBC) --compile-mode=prod --create-zip
 
 deploy: $(CUSTGBC).zip
-	gasadmin gbc -f $(FGLASDIR)/etc/new_as$(VER).xcf --deploy $^
+	gasadmin gbc $(GASCFG) --deploy $^
 
 undeploy: 
-	gasadmin gbc -f $(FGLASDIR)/etc/new_as$(VER).xcf --undeploy $(CUSTGBC)
+	gasadmin gbc $(GASCFG) --undeploy $(CUSTGBC)
 
 redeploy: undeploy deploy
