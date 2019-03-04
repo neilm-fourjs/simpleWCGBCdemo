@@ -83,6 +83,9 @@
     <Library binaryName="java" id="1354634647" label="java" language="Java" srcDirectory="$(ProjectDir)/java">
       <File filePath="java/simple.java"/>
     </Library>
+    <Library binaryName="lib" id="1001382240" label="lib">
+      <File filePath="src/generoInfo.4gl"/>
+    </Library>
     <Application binaryName="simpleDemo" dependencies="14000,1986,-1234406158,1354634647" id="18736" label="simpleDemo">
       <File filePath="src/form.per"/>
       <File filePath="src/main.4gl"/>
