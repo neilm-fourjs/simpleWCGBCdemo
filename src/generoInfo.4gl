@@ -1,9 +1,12 @@
 PUBLIC TYPE generoInfo RECORD
   runtimeInfo STRING,
-  clientInfo STRING,
   fgl_major SMALLINT,
   fgl_minor SMALLINT,
-  fgl_patch SMALLINT
+  fgl_patch SMALLINT,
+  clientName STRING,
+  clientVer STRING,
+  universalName STRING,
+  universalVer STRING
 END RECORD
 
 FUNCTION (this generoInfo) init()
@@ -12,17 +15,26 @@ FUNCTION (this generoInfo) init()
   LET this.fgl_minor = this.runtimeInfo.subString(2, 3)
   LET this.fgl_patch = this.runtimeInfo.subString(4, 5)
   LET this.runtimeInfo = SFMT("%1.%2.%3", this.fgl_major, this.fgl_minor, this.fgl_patch)
-  LET this.clientInfo =
-      SFMT("Client is %1 Version %2",
-          ui.Interface.getFrontEndName(), ui.Interface.getFrontEndVersion())
-  IF ui.Interface.getUniversalClientName() IS NOT NULL THEN
-    LET this.clientInfo =
-        this.clientInfo.append(
-            SFMT("<br>Universal Client is %1 Version %2",
-                ui.Interface.getUniversalClientName(), ui.Interface.getUniversalClientVersion()))
-  END IF
+	LET this.clientName = ui.Interface.getFrontEndName()
+	LET this.clientVer =  ui.Interface.getFrontEndVersion()
+	LET this.universalName = ui.Interface.getUniversalClientName()
+	LET this.universalVer = ui.Interface.getUniversalClientVersion()
+END FUNCTION
+--------------------------------------------------------------------------------
+FUNCTION (this generoInfo) toHTML() RETURNS STRING
+	DEFINE l_ret STRING
+  LET l_ret = SFMT("Runtime:%1<br>Client: %2 %3", this.runtimeInfo, this.clientName, this.clientVer)
+	IF this.universalName IS NOT NULL THEN
+		LET l_ret = l_ret.append(SFMT("<br>Universal: %1 %2", this.universalName, this.universalVer))
+	END IF
+	RETURN l_ret
 END FUNCTION
 --------------------------------------------------------------------------------
 FUNCTION (this generoInfo) toString() RETURNS STRING
-  RETURN SFMT("Genero Version is %1<br>%2", this.runtimeInfo, this.clientInfo)
+	DEFINE l_ret STRING
+  LET l_ret = SFMT("Runtime:%1\nClient: %2 %3", this.runtimeInfo, this.clientName, this.clientVer)
+	IF this.universalName IS NOT NULL THEN
+		LET l_ret = l_ret.append(SFMT("\nUniversal: %1 %2", this.universalName, this.universalVer))
+	END IF
+	RETURN l_ret
 END FUNCTION

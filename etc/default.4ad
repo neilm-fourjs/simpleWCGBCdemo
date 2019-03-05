@@ -42,6 +42,7 @@ Property of Four Js*
   <ActionDefault name="dialogtouched" validate="no" defaultView="no"  contextMenu="no"/>
 
   <ActionDefault name="do_wc" validate="no" text="Do WC" image="fa-chrome" comment="Do WebComponent Input" acceleratorName="w" defaultView="yes" contextMenu="no"/>
+  <ActionDefault name="do_rpt" validate="no" text="Do Report" image="fa-print" comment="Do Report" acceleratorName="control-p" defaultView="yes" contextMenu="no"/>
 
   <ActionDefault name="back" validate="no" text="Back" image="fa-arrow-circle-left" comment="Back" acceleratorName="Escape" defaultView="yes" contextMenu="no"/>
   <ActionDefault name="quit" validate="no" text="Quit" image="fa-power-off" comment="Quit" acceleratorName="Escape" defaultView="yes" contextMenu="no"/>
