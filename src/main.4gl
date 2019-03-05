@@ -56,6 +56,7 @@ FUNCTION do_rpt()
 		OUTPUT TO REPORT rpt1 ( x )
 	END FOR
 	FINISH REPORT rpt1
+	CALL l_gre.finish()
 END FUNCTION
 --------------------------------------------------------------------------------
 REPORT rpt1( x SMALLINT )

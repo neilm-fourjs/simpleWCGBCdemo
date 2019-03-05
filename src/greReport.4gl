@@ -1,4 +1,5 @@
 IMPORT os
+
 PUBLIC TYPE greReport RECORD
 		reportsDir STRING,
 		rptName STRING,
@@ -48,17 +49,21 @@ FUNCTION (this greReport ) start(l_rptName STRING) RETURNS BOOLEAN
       CALL fgl_report_setOutputFileName(this.fileName)
     END IF
   END IF
-  -- Return the SAX handler
+  -- Set the SAX handler
   IF this.device = "XML" THEN -- Just produce XML output
     LET this.handle = fgl_report_createProcessLevelDataFile(this.fileName)
   ELSE -- Produce a report using GRE
     LET this.handle = fgl_report_commitCurrentSettings()
   END IF
-
-  MESSAGE "Printing, please wait ..."
+  MESSAGE SFMT("Printing Report %1, please wait ...", NVL(this.rptName,"ASCII") )
   CALL ui.Interface.refresh()
 
 	RETURN TRUE
+END FUNCTION
+-------------------------------------------------------------------------------
+FUNCTION (this greReport ) finish() RETURNS ()
+	MESSAGE SFMT("Report %1 Finished.",  NVL(this.rptName,"ASCII"))
+  CALL ui.Interface.refresh()
 END FUNCTION
 -------------------------------------------------------------------------------
 FUNCTION (this greReport ) getOutput() RETURNS BOOLEAN
